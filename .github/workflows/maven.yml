@@ -21,6 +21,9 @@ jobs:
         cache: maven
     - name: Paso 3 - Build con maven el projecto
       run: mvn -B package --file pom.xml
+    - name: Comandos para debugear  
+      run: pwd && ls -r && ls -r target/ && ls -r target/surefire-reports/
+      
   #Subir los archivos en el artefacto
   event_file:
     needs: [build]
