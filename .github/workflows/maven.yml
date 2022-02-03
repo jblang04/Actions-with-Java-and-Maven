@@ -22,7 +22,7 @@ jobs:
     - name: Paso 3 - Build con maven el projecto
       run: mvn -B package --file pom.xml
     #Crear carpeta donde se guardaran los artefactos
-    - run: mkdir staging && cp target/*.jar staging
+    #- run: mkdir staging && cp target/*.jar staging
     - name: Paso 4 - Guardar los resultados de los test en actefactos
       if: always()
       uses: actions/upload-artifact@v2
