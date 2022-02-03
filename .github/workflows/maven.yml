@@ -23,6 +23,7 @@ jobs:
       run: mvn -B package --file pom.xml
   #Subir los archivos en el artefacto
   event_file:
+    needs: [build]
     name: "Event File"
     runs-on: ubuntu-latest
     steps:
