@@ -24,12 +24,6 @@ jobs:
     - name: Comandos para debugear 1
       run: pwd && ls -r && echo "(ls -r)"  && ls -r target/ && echo "(target)" && ls -r target/surefire-reports/ && echo "(surefire)"
       
-  #Subir los archivos en el artefacto
-  event_file:
-    needs: [build]
-    name: "Event File"
-    runs-on: ubuntu-latest
-    steps:
     - name:  Paso 4 - Guardar los event file
       uses: actions/upload-artifact@v2
       with:
