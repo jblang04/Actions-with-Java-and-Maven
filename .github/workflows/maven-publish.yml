@@ -23,8 +23,9 @@ jobs:
       run: mvn -B package --file pom.xml
     #Crear carpeta donde se guardaran los artefactos
     - run: mkdir staging && cp target/*.jar staging
-    - name: Paso 4 - Guardar los resultados de la ejecucion en actefactos
+    - name: Paso 4 - Guardar los resultados de los test en actefactos
+      if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: Package
-        path: staging
+        name: Unit Test Result 
+        path: target/surefire-reports/*.xml
