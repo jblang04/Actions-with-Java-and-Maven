@@ -21,8 +21,8 @@ jobs:
         cache: maven
     - name: Paso 3 - Build con maven el projecto
       run: mvn -B package --file pom.xml
-    - name: Comandos para debugear  
-      run: pwd && ls -r && ls -r target/ && ls -r target/surefire-reports/
+    - name: Comandos para debugear 1
+      run: pwd && ls -r && echo "(ls -r)"  && ls -r target/ && echo "(target)" && ls -r target/surefire-reports/ && echo "(surefire)"
       
   #Subir los archivos en el artefacto
   event_file:
@@ -30,13 +30,14 @@ jobs:
     name: "Event File"
     runs-on: ubuntu-latest
     steps:
-    - name: Upload
+    - name:  Paso 4 - Guardar los event file
       uses: actions/upload-artifact@v2
       with:
         name: Event File
         path: ${{ github.event_path }}
-
-    - name: Paso 4 - Guardar los resultados de los test en actefactos
+    - name: Comandos para debugear  2
+      run: pwd && ls -r && echo "(ls -r)"  && ls -r target/ && echo "(target)" && ls -r target/surefire-reports/ && echo "(surefire)"
+    - name: Paso 5 - Guardar los resultados de los test en actefactos
       if: always()
       uses: actions/upload-artifact@v2
       with:
