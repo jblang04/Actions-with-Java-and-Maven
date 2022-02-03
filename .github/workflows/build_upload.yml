@@ -1,10 +1,10 @@
 # This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
 # For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
 
-name: maven
+name: Build and Test
 on: [push]
 jobs:
-  build:
+  build-upload:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -19,19 +19,20 @@ jobs:
         java-version: '1.8'
         #Añadimos las dependencias al cache para que sean mas rapidas las siguientes ejecuciones
         cache: maven
-    - name: Paso 3 - Build con maven el projecto
+    - name: Paso 3 - Build con maven el proyecto
       run: mvn -B package --file pom.xml
-    - name: Comandos para debugear 1
-      run: pwd && ls -r && echo "(ls -r)"  && ls -r target/ && echo "(target)" && ls -r target/surefire-reports/ && echo "(surefire)"
+    #- name: Comandos para debugear 1
+    #  run: pwd && ls -r && echo "(ls -r)"  && ls -r target/ && echo "(target)" && ls -r target/surefire-reports/ && echo "(surefire)"
       
-    - name:  Paso 4 - Guardar los event file
+    - name:  Paso 4 - Guardar los event file en artifacts
       uses: actions/upload-artifact@v2
       with:
         name: Event File
         path: ${{ github.event_path }}
-    - name: Comandos para debugear  2
-      run: pwd && ls -r && echo "(ls -r)"  && ls -r target/ && echo "(target)" && ls -r target/surefire-reports/ && echo "(surefire)"
-    - name: Paso 5 - Guardar los resultados de los test en actefactos
+        
+    #- name: Comandos para debugear  2
+    #  run: pwd && ls -r && echo "(ls -r)"  && ls -r target/ && echo "(target)" && ls -r target/surefire-reports/ && echo "(surefire)"
+    - name: Paso 5 - Guardar los resultados de los test en artifacts
       if: always()
       uses: actions/upload-artifact@v2
       with:
