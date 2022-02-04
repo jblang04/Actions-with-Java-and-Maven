@@ -20,7 +20,7 @@ jobs:
         #Añadimos las dependencias al cache para que sean mas rapidas las siguientes ejecuciones
         cache: maven
     - name: Paso 3 - Build con maven el proyecto
-      run: mvn -B package --file pom.xml
+      run: mvn -Dmaven.test.failure.ignore=true -B package --file pom.xml
     #- name: Comandos para debugear 1
     #  run: pwd && ls -r && echo "(ls -r)"  && ls -r target/ && echo "(target)" && ls -r target/surefire-reports/ && echo "(surefire)"
       
