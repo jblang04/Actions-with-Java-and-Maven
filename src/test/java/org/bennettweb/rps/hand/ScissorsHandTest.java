@@ -23,7 +23,7 @@ public class ScissorsHandTest {
 	@Test
 	public void testBeatsRock() {
 		RockHand rock = new RockHand();
-		Assert.assertEquals(HandCompareResult.Win, classUnderTest.beats(rock));
+		Assert.assertEquals(HandCompareResult.Lose, classUnderTest.beats(rock));
 	}
 	
 	@Test
