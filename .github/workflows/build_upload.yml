@@ -2,7 +2,7 @@
 # For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
 
 name: Build and Test
-on: [push]
+on: [pull_request, workflow_dispatch]
 jobs:
   build-upload:
     runs-on: ubuntu-latest
