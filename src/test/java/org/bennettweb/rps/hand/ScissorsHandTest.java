@@ -29,14 +29,14 @@ public class ScissorsHandTest {
 	@Test
 	public void testBeatsPaper() {
 		PaperHand paper = new PaperHand();
-		Assert.assertEquals(HandCompareResult.Win, classUnderTest.beats(paper));
+		Assert.assertEquals(HandCompareResult.Lose, classUnderTest.beats(paper));
 	}
 	
 	@Test
 	public void testBeatsScissors() {
 		//Este va a fallar
 		ScissorsHand scissors = new ScissorsHand();
-		Assert.assertEquals(HandCompareResult.win, classUnderTest.beats(scissors));
+		Assert.assertEquals(HandCompareResult.Draw, classUnderTest.beats(scissors));
 	}
 
 }
