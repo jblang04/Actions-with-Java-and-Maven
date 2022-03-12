@@ -34,9 +34,9 @@ public class ScissorsHandTest {
 	
 	@Test
 	public void testBeatsScissors() {
-		//Este va a fallar
+
 		ScissorsHand scissors = new ScissorsHand();
-		Assert.assertEquals(HandCompareResult.WIn, classUnderTest.beats(scissors));
+		Assert.assertEquals(HandCompareResult.Win, classUnderTest.beats(scissors));
 	}
 
 }
